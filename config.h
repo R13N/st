@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-char font[] = "Ubuntu Mono:size=11";
-int borderpx = 2;
+char font[] = "Source Code Pro:size=13";
+int borderpx = 0;
 
 /*
  * What program is execed by st depends of these precedence rules:
