@@ -7,6 +7,10 @@ include config.mk
 SRC = st.c x.c
 OBJ = $(SRC:.c=.o)
 
+stlight: CFLAGS += -Dlight_theme
+
+stlight: st
+
 all: options st
 
 options:
@@ -21,8 +25,8 @@ config.h:
 .c.o:
 	$(CC) $(STCFLAGS) -c $<
 
-st.o: config.h st.h win.h
-x.o: arg.h config.h st.h win.h
+st.o: config.h st.h win.h colors.h colors_light.h
+x.o: arg.h st.h win.h colors.h colors_light.h
 
 $(OBJ): config.h config.mk
 
@@ -30,7 +34,7 @@ st: $(OBJ)
 	$(CC) -o $@ $(OBJ) $(STLDFLAGS)
 
 clean:
-	rm -f st $(OBJ) st-$(VERSION).tar.gz
+	rm -f st stlight $(OBJ) st-$(VERSION).tar.gz
 
 dist: clean
 	mkdir -p st-$(VERSION)
@@ -54,4 +58,4 @@ uninstall:
 	rm -f $(DESTDIR)$(PREFIX)/bin/st
 	rm -f $(DESTDIR)$(MANPREFIX)/man1/st.1
 
-.PHONY: all options clean dist install uninstall
+.PHONY: all options clean dist install uninstall stlight
