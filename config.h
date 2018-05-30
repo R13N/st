@@ -1,11 +1,18 @@
 /* See LICENSE file for copyright and license details. */
 
+// Import color scheme
+#ifdef light_theme
+    #include <colors_light.h>
+#else
+    #include <colors.h>
+#endif
+
 /*
  * appearance
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-char font[] = "Source Code Pro:size=13";
+char font[] = "Fira Mono:size=13";
 int borderpx = 0;
 
 /*
@@ -49,7 +56,7 @@ unsigned int actionfps = 30;
  * blinking timeout (set to 0 to disable blinking) for the terminal blinking
  * attribute.
  */
-unsigned int blinktimeout = 800;
+unsigned int blinktimeout = 0;
 
 /*
  * thickness of underline and bar cursors
@@ -82,44 +89,6 @@ char termname[] = "st-256color";
  */
 static unsigned int tabspaces = 8;
 
-/* Terminal colors (16 first used in escape sequence) */
-const char *colorname[] = {
-	/* 8 normal colors */ 
-	"#0c0d0e",
-	"#e31a1c",
-	"#31a354",
-	"#dca060",
-	"#3182bd",
-	"#756bb1",
-	"#80b1d3",
-	"#b7b8b9",
-
-	/* 8 bright colors */ 
-	"#737475",
-	"#e31a1c",
-	"#31a354",
-	"#dca060",
-	"#3182bd",
-	"#756bb1",
-	"#80b1d3",
-	"#fcfdfe",
-
-	[255] = 0,
-
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
-};
-
-
-/*
- * Default colors (colorname index)
- * foreground, background, cursor, reverse cursor
- */
-unsigned int defaultfg = 7;
-unsigned int defaultbg = 0;
-unsigned int defaultcs = 256;
-unsigned int defaultrcs = 257;
 
 /*
  * Default shape of cursor
