@@ -7,10 +7,6 @@ include config.mk
 SRC = st.c x.c
 OBJ = $(SRC:.c=.o)
 
-stlight: CFLAGS += -Dlight_theme
-
-stlight: st
-
 all: options st
 
 options:
