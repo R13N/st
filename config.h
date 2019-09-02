@@ -9,7 +9,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Fira Mono:size=13";
+static char *font = "Fira Mono:size=13:antialias=true:autohint=true";
 static int borderpx = 0;
 
 /*
