@@ -3,6 +3,7 @@
 // Import color scheme
 //#include "colors_light.h"
 #include "colors.h"
+#include <stdint.h>
 
 /*
  * appearance
@@ -36,7 +37,7 @@ static float chscale = 1.0;
  *
  * More advanced example: " `'\"()[]{}"
  */
-char *worddelimiters = " ";
+wchar_t *worddelimiters = L" ";
 
 /* selection timeouts (in milliseconds) */
 static unsigned int doubleclicktimeout = 300;
